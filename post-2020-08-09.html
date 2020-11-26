@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-11-26 Thu 22:00 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>和暦を西暦に変換する</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" href="./css/stylesheet.css" type="text/css"/>
+<script data-ad-client="ca-pub-2100120543182790" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="banner">
+<a id="name">Life with Emacs.</a><br />
+<a href="./about.html"> about this site </a> | <a href="index.html"> archive </a> | <a href="theindex.html"> index </a></div>
+<div class="title">和暦を西暦に変換する</div>
+<div class="date">2020-08-09 Sun 10:42</div>
+</div>
+<div id="content">
+<style>
+#quote {
+background-color: white;
+border: solid blue 1px; 
+padding: 1em;
+}
+</style>
+
+<div id="outline-container-org3acb149" class="outline-2">
+<h2 id="org3acb149">和暦を西暦に変換する（１）</h2>
+<div class="outline-text-2" id="text-org3acb149">
+<p>
+ときどき，和暦で書かれた情報と西暦でかかれた情報を共存させなければなら
+ないことがある．役所の資料は，基本的に日付が和暦で表現されている．当然
+西暦に揃えるわけだが，その都度和暦と西暦の変換に手間がかかる．なんとか
+ならないものか，と当然思う．
+</p>
+
+<p>
+例えば「平成２３年」と書いてあったとする．これは西暦何年か．だいたい，
+ブラウザのアドレスバーに突っ込めば簡単に答は出てくるのだが，これをいち
+いちやるのも馬鹿げている．Emacsにやらせてみよう．
+</p>
+
+<p>
+"H23"という文字列を与えてやると，(西暦)2011年という答が返ってくれば良
+い．当然文字列の先頭を見てやって，それがHであれば平成と認識し，Hに続く
+数字に1988を足してやればいいのだ．平成元年は1989年だからだ．この時点で
+は簡単のため，他の年号や，平成元年の1月7日までは昭和64年だったことは無
+視する．
+</p>
+
+<p>
+文字列の先頭の「文字」を取り出すにはどうしたらいいか．Emacs Lispを曖昧
+にしか理解していないと「car で取り出せばいいんじゃね？」となるかもしれ
+ないが，それはダメだ．Emacsでは文字列はリストではないので carは使えな
+いのである．Emacsは文字列を文字の配列として扱う．配列の最初の要素を取
+り出す(arefを用いて)でも良いかもしれないが，ここでは，文字列を構成する
+各文字を文字列に変換し，文字列のリストをつくる，というやり方を取る．
+</p>
+
+<p>
+配列もリストも，シーケンスというタイプの導出タイプだが，シーケンスに対
+してはmapcarが使える．mapcarで文字列のそれぞれの文字に対して，ある関数
+を作用させることで文字列のリストを作ることができる．ある関数とはstring
+だ．つまり以下の様になる．
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span></label><pre class="src src-emacs-lisp">(mapcar 'string <span class="org-string">"H23"</span>)
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">H</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+こうしてリストに変換した上で，最初の要素を取り出してやればいい． <b>car</b> で
+ある．
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(car (mapcar 'string <span class="org-string">"H23"</span>))
+</pre>
+</div>
+
+<pre class="example">
+H
+</pre>
+
+
+<p>
+"H"という文字列を取り出すことができた．あとは，これがHであれば1988を足
+せばいいのだ．つぎような関数 h-convert ができる．
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">h-convert</span> (year)
+  (<span class="org-keyword">if</span> (equal (car (mapcar 'string year)) <span class="org-string">"H"</span>)
+      (+ 1988 (string-to-number
+               (mapconcat 'identity (cdr (mapcar 'string year)) <span class="org-string">""</span>)))))
+
+(h-convert <span class="org-string">"H23"</span>)
+</pre>
+</div>
+
+<pre class="example">
+2011
+</pre>
+
+
+<p>
+うーん，なんかイマイチ冗長な感じになってしまった．Hを取り出すところと，
+Hの後ろの数字を取り出すところに冗長感がある． <b>mapconcat</b> に渡している
+<b>identity</b> は何もしない関数だ．要素には何もせず，空白" "を介して連結する．
+</p>
+
+
+<p>
+ちなみに， <b>mapconcat</b> のところは， <b>concat</b> はつかえない．
+(cdr (mapcar 'string year))　は文字列のリストであって，文字のリストではないからだ．
+concatは文字のリストは引数にとれるが，文字列のリストはダメらしい．以下参照．
+</p>
+
+<blockquote id="quote">
+<p>
+concat is a built-in function in ‘C source code’.
+</p>
+
+<p>
+(concat &amp;rest SEQUENCES)
+</p>
+
+<p>
+Concatenate all the arguments and make the result a string.
+The result is a string whose elements are the elements of all the arguments.
+<b>Each argument may be a string or a list or vector of characters (integers).</b>
+</p>
+
+<p>
+[back]
+</p>
+</blockquote>
+
+<p>
+どうしても <b>concat</b> でまとめたいなら，こうなるかと思うが，却って複雑になる．．．
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">h-convert</span> (year)
+  (<span class="org-keyword">if</span> (equal (car (mapcar 'string year)) <span class="org-string">"H"</span>)
+      (+ 1988 (string-to-number
+               (concat (mapcar 'string-to-char (cdr (mapcar 'string year))))))))
+
+(h-convert <span class="org-string">"H23"</span>)
+</pre>
+</div>
+
+<pre class="example">
+2011
+</pre>
+
+
+<p>
+まだ勉強が必要なようだ．
+とは言え，第一歩は踏み出せた．
+</p>
+</div>
+</div>
+
+<div id="outline-container-org70ba39e" class="outline-2">
+<h2 id="org70ba39e">和暦を西暦に変換する（２）</h2>
+<div class="outline-text-2" id="text-org70ba39e">
+<p>
+まあ，つぎは明治，大正，昭和，令和も対応させることを当然考える．
+年号ごとにオフセットを格納したalistを用意し，検出した文字に応じてオフ
+セットを検索し，年数に足す．非常に素朴なやり方だが，まあ何とかなるか．
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> nengo-offset-alist 
+      '( (<span class="org-string">"M"</span> . 1966) (<span class="org-string">"T"</span> . 1910) (<span class="org-string">"S"</span> . 1925) (<span class="org-string">"H"</span> . 1988) (<span class="org-string">"R"</span> . 2018)))
+
+(<span class="org-keyword">defun</span> <span class="org-function-name">japanese-western-calendar-converter</span> (year)
+  (<span class="org-keyword">let</span> ((eraname (car (mapcar 'string year)))
+        (erayear (mapconcat 'identity (cdr (mapcar 'string year)) <span class="org-string">""</span>)))
+    (+ (string-to-number erayear) (cdr (assoc eraname nengo-offset-alist)))))
+
+(japanese-western-calendar-converter <span class="org-string">"H23"</span>)
+</pre>
+</div>
+
+<pre class="example">
+2011
+</pre>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div>
+by gonthefox<br />
+</div>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://emacs-life.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</body>
+</html>

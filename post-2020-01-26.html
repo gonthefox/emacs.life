@@ -6,7 +6,7 @@
 <!-- 2020-11-26 Thu 22:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Archived posts</title>
+<title>maximaで遊んでみた</title>
 <meta name="generator" content="Org mode" />
 <link rel="stylesheet" href="./css/stylesheet.css" type="text/css"/>
 <script data-ad-client="ca-pub-2100120543182790" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -56,6 +56,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -63,20 +85,54 @@ for the JavaScript code in this tag.
 <div class="banner">
 <a id="name">Life with Emacs.</a><br />
 <a href="./about.html"> about this site </a> | <a href="index.html"> archive </a> | <a href="theindex.html"> index </a></div>
-<div class="title">Archived posts</div>
+<div class="title">maximaで遊んでみた</div>
 <div class="date"></div>
 </div>
 <div id="content">
-<ul class="org-ul">
-<li><a href="post-2020-09-12.html">改行文字の挿入</a> (2020-09-12 Sat)</li>
-<li><a href="post-2020-08-09.html">和暦を西暦に変換する</a> (2020-08-09 Sun)</li>
-<li><a href="post-2020-01-26.html">maxima</a> (2020-01-29 Wed)</li>
-<li><a href="post-2019-12-26.html">mapcarを使ってみる</a> (2020-01-29 Wed)</li>
-<li><a href="post-2020-01-28.html">ftp</a> (2020-01-29 Wed)</li>
-<li><a href="theindex.html">Index</a> (2020-01-28 Tue)</li>
-<li><a href="post-2020-01-25.html">C-x start-blogging</a> (2020-01-26 Sun)</li>
-<li><a href="about.html">about this site</a> (2019-12-28 Sat)</li>
-</ul>
+<div id="outline-container-orgee4de28" class="outline-2">
+<h2 id="orgee4de28">maxima&#xa0;&#xa0;&#xa0;<span class="tag"><span class="org_babel">org_babel</span>&#xa0;<span class="maxima">maxima</span></span></h2>
+<div class="outline-text-2" id="text-orgee4de28">
+<p>
+maximaで遊んでみた．
+</p>
+</div>
+<div id="outline-container-org86d02cd" class="outline-3">
+<h3 id="org86d02cd">多項式の展開</h3>
+<div class="outline-text-3" id="text-org86d02cd">
+<div class="org-src-container">
+<pre class="src src-maxima">tex(expand((x+b)^2));
+</pre>
+</div>
+
+<p>
+\[x^2+2\,b\,x+b^2\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org299abf1" class="outline-3">
+<h3 id="org299abf1">因数分解</h3>
+<div class="outline-text-3" id="text-org299abf1">
+<div class="org-src-container">
+<pre class="src src-maxima">tex(factor(x^2-y^2));
+</pre>
+</div>
+
+<p>
+\[-\left(y-x\right)\,\left(y+x\right)\]
+</p>
+
+
+<p>
+なぜわざわざ負号を付けるのか？
+</p>
+
+<p>
+とりあえず，今日はこの辺で．
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <div>
