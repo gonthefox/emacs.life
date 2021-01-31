@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-01-30 Sat 09:44 -->
+<!-- 2021-02-01 Mon 08:35 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>replace-regexp-in-string</title>
@@ -113,11 +113,12 @@ replace-regexp-in-stringを用いる．
 
 <p>
 つまづいたのは，カッコにバックスラッシュをいくつ付ければよいのか，ということ．
-文字としての"(" あるいは ")" に一致させるには，"\(" あるいは "\)" とすればよい．特殊文字ではなく通常の文字として扱え，ということだろう．
+文字としての"(" あるいは ")" に一致させるには，"¥\(" あるいは "¥\)" とすればよい．特殊文字ではなく通常の文字として扱え，ということだろう．
 後方置換のための"("はそれなら，何も付けなくていいだろう，と思ったがそうではなかった．なぜか，"\\(" あるいは "\\)" のように，バックスラッシュを重ねなければならなかった．
 それじゃあ，バックスラッシュの無い "(" あるいは ")" は何なんだろう？
 追々調べて行くとしよう．
 </p>
+
 
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> test <span class="org-string">"( b nil 59 )"</span>)
