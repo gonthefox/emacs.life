@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-26 Thu 22:00 -->
+<!-- 2021-03-20 Sat 22:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>和暦を西暦に変換する</title>
@@ -75,9 +75,9 @@ padding: 1em;
 }
 </style>
 
-<div id="outline-container-org3acb149" class="outline-2">
-<h2 id="org3acb149">和暦を西暦に変換する（１）</h2>
-<div class="outline-text-2" id="text-org3acb149">
+<div id="outline-container-orga3f1809" class="outline-2">
+<h2 id="orga3f1809">和暦を西暦に変換する（１）</h2>
+<div class="outline-text-2" id="text-orga3f1809">
 <p>
 ときどき，和暦で書かれた情報と西暦でかかれた情報を共存させなければなら
 ないことがある．役所の資料は，基本的に日付が和暦で表現されている．当然
@@ -116,7 +116,7 @@ padding: 1em;
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span></label><pre class="src src-emacs-lisp">(mapcar 'string <span class="org-string">"H23"</span>)
+<label class="org-src-name"><span class="listing-number">Listing 1: </span></label><pre class="src src-emacs-lisp">(mapcar 'string <span style="color: #8b2252;">"H23"</span>)
 </pre>
 </div>
 
@@ -145,7 +145,7 @@ padding: 1em;
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(car (mapcar 'string <span class="org-string">"H23"</span>))
+<pre class="src src-emacs-lisp">(car (mapcar 'string <span style="color: #8b2252;">"H23"</span>))
 </pre>
 </div>
 
@@ -160,12 +160,12 @@ H
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">h-convert</span> (year)
-  (<span class="org-keyword">if</span> (equal (car (mapcar 'string year)) <span class="org-string">"H"</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">h-convert</span> (year)
+  (<span style="color: #a020f0;">if</span> (equal (car (mapcar 'string year)) <span style="color: #8b2252;">"H"</span>)
       (+ 1988 (string-to-number
-               (mapconcat 'identity (cdr (mapcar 'string year)) <span class="org-string">""</span>)))))
+               (mapconcat 'identity (cdr (mapcar 'string year)) <span style="color: #8b2252;">""</span>)))))
 
-(h-convert <span class="org-string">"H23"</span>)
+(h-convert <span style="color: #8b2252;">"H23"</span>)
 </pre>
 </div>
 
@@ -212,12 +212,12 @@ The result is a string whose elements are the elements of all the arguments.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">h-convert</span> (year)
-  (<span class="org-keyword">if</span> (equal (car (mapcar 'string year)) <span class="org-string">"H"</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">h-convert</span> (year)
+  (<span style="color: #a020f0;">if</span> (equal (car (mapcar 'string year)) <span style="color: #8b2252;">"H"</span>)
       (+ 1988 (string-to-number
                (concat (mapcar 'string-to-char (cdr (mapcar 'string year))))))))
 
-(h-convert <span class="org-string">"H23"</span>)
+(h-convert <span style="color: #8b2252;">"H23"</span>)
 </pre>
 </div>
 
@@ -233,9 +233,9 @@ The result is a string whose elements are the elements of all the arguments.
 </div>
 </div>
 
-<div id="outline-container-org70ba39e" class="outline-2">
-<h2 id="org70ba39e">和暦を西暦に変換する（２）</h2>
-<div class="outline-text-2" id="text-org70ba39e">
+<div id="outline-container-org6e3c2fe" class="outline-2">
+<h2 id="org6e3c2fe">和暦を西暦に変換する（２）</h2>
+<div class="outline-text-2" id="text-org6e3c2fe">
 <p>
 まあ，つぎは明治，大正，昭和，令和も対応させることを当然考える．
 年号ごとにオフセットを格納したalistを用意し，検出した文字に応じてオフ
@@ -243,15 +243,15 @@ The result is a string whose elements are the elements of all the arguments.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> nengo-offset-alist 
-      '( (<span class="org-string">"M"</span> . 1966) (<span class="org-string">"T"</span> . 1910) (<span class="org-string">"S"</span> . 1925) (<span class="org-string">"H"</span> . 1988) (<span class="org-string">"R"</span> . 2018)))
+<pre class="src src-emacs-lisp">(<span style="color: #a020f0;">setq</span> nengo-offset-alist 
+      '( (<span style="color: #8b2252;">"M"</span> . 1966) (<span style="color: #8b2252;">"T"</span> . 1910) (<span style="color: #8b2252;">"S"</span> . 1925) (<span style="color: #8b2252;">"H"</span> . 1988) (<span style="color: #8b2252;">"R"</span> . 2018)))
 
-(<span class="org-keyword">defun</span> <span class="org-function-name">japanese-western-calendar-converter</span> (year)
-  (<span class="org-keyword">let</span> ((eraname (car (mapcar 'string year)))
-        (erayear (mapconcat 'identity (cdr (mapcar 'string year)) <span class="org-string">""</span>)))
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">japanese-western-calendar-converter</span> (year)
+  (<span style="color: #a020f0;">let</span> ((eraname (car (mapcar 'string year)))
+        (erayear (mapconcat 'identity (cdr (mapcar 'string year)) <span style="color: #8b2252;">""</span>)))
     (+ (string-to-number erayear) (cdr (assoc eraname nengo-offset-alist)))))
 
-(japanese-western-calendar-converter <span class="org-string">"H23"</span>)
+(japanese-western-calendar-converter <span style="color: #8b2252;">"H23"</span>)
 </pre>
 </div>
 

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-26 Thu 22:00 -->
+<!-- 2021-03-20 Sat 22:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>改行文字の挿入と日付の計算</title>
@@ -67,20 +67,20 @@ for the JavaScript code in this tag.
 <div class="date">2020-09-12 Sat 18:03</div>
 </div>
 <div id="content">
-<div id="outline-container-org82e910e" class="outline-2">
-<h2 id="org82e910e">改行文字の挿入</h2>
-<div class="outline-text-2" id="text-org82e910e">
+<div id="outline-container-orgd095a1d" class="outline-2">
+<h2 id="orgd095a1d">改行文字の挿入</h2>
+<div class="outline-text-2" id="text-orgd095a1d">
 <p>
 バッファに文字列を出力するときに，改行の挿入の仕方がわからなかったので
 調べて見た．結論から言えば，"\12"でよい．
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp" id="org49891af">  (<span class="org-keyword">defun</span> <span class="org-function-name">count-down</span> (number)
-    <span class="org-doc">"Count down from an arbitary number to zero."</span>
-    (<span class="org-keyword">while</span> (&gt;= number 0)
-      (insert (format <span class="org-string">"%d\12"</span> number))
-      (<span class="org-keyword">setq</span> number (1- number))))
+<pre class="src src-emacs-lisp" id="org7a3cc2b">  (<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">count-down</span> (number)
+    <span style="color: #8b2252;">"Count down from an arbitary number to zero."</span>
+    (<span style="color: #a020f0;">while</span> (&gt;= number 0)
+      (insert (format <span style="color: #8b2252;">"%d\12"</span> number))
+      (<span style="color: #a020f0;">setq</span> number (1- number))))
   (count-down 10)
 
 10
@@ -100,9 +100,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd0a1b20" class="outline-2">
-<h2 id="orgd0a1b20">日付の計算</h2>
-<div class="outline-text-2" id="text-orgd0a1b20">
+<div id="outline-container-orgdc6b1c1" class="outline-2">
+<h2 id="orgdc6b1c1">日付の計算</h2>
+<div class="outline-text-2" id="text-orgdc6b1c1">
 <p>
 日付の計算はなんと言っても次のページの説明が分かりやすい．
 わからなくなる度に何度も参照した．
@@ -124,18 +124,18 @@ for the JavaScript code in this tag.
 
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">defun</span> <span class="org-function-name">get-expiring-date</span> (fdate delay)
-  (<span class="org-keyword">let</span> ((ftime (date-to-time (concat fdate <span class="org-string">" 00:00:00"</span>))))
+<pre class="src src-emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">get-expiring-date</span> (fdate delay)
+  (<span style="color: #a020f0;">let</span> ((ftime (date-to-time (concat fdate <span style="color: #8b2252;">" 00:00:00"</span>))))
     (format-time-string
-     <span class="org-string">"%Y-%m-%d"</span>
+     <span style="color: #8b2252;">"%Y-%m-%d"</span>
      (time-add (date-to-time
                 (concat
                  (number-to-string
-                  (+ 20 (string-to-number (format-time-string <span class="org-string">"%Y"</span> ftime))))
-                 (format-time-string <span class="org-string">"%m-%d"</span> ftime) <span class="org-string">" 00:00:00"</span>))
+                  (+ 20 (string-to-number (format-time-string <span style="color: #8b2252;">"%Y"</span> ftime))))
+                 (format-time-string <span style="color: #8b2252;">"%m-%d"</span> ftime) <span style="color: #8b2252;">" 00:00:00"</span>))
                (days-to-time delay)))))
 
-  (get-expiring-date <span class="org-string">"2020-05-01"</span> 150)
+  (get-expiring-date <span style="color: #8b2252;">"2020-05-01"</span> 150)
 
 </pre>
 </div>

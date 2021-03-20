@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-11-26 Thu 22:00 -->
+<!-- 2021-03-20 Sat 22:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>mapcarを使ってみた</title>
@@ -67,9 +67,9 @@ for the JavaScript code in this tag.
 <div class="date">2019-12-26 Thu 00:00</div>
 </div>
 <div id="content">
-<div id="outline-container-org3b17bde" class="outline-2">
-<h2 id="org3b17bde">mapcar で文字列を解体する（文字列を取り出す）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="elisp">elisp</span></span></h2>
-<div class="outline-text-2" id="text-org3b17bde">
+<div id="outline-container-orgb1a7787" class="outline-2">
+<h2 id="orgb1a7787">mapcar で文字列を解体する（文字列を取り出す）&#xa0;&#xa0;&#xa0;<span class="tag"><span class="elisp">elisp</span></span></h2>
+<div class="outline-text-2" id="text-orgb1a7787">
 <p>
 mapcarは「シーケンス」の個々の要素に対し、指定した関数を適用する。
 適用する関数としてstringを指定し，文字列に対して適用してみる．
@@ -82,14 +82,14 @@ mapcarは「シーケンス」の個々の要素に対し、指定した関数�
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(mapcar 'string <span class="org-string">"ABCDEFG"</span>)
+<pre class="src src-emacs-lisp">(mapcar 'string <span style="color: #8b2252;">"ABCDEFG"</span>)
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgfc669bc" class="outline-3">
-<h3 id="orgfc669bc">出力結果</h3>
-<div class="outline-text-3" id="text-orgfc669bc">
+<div id="outline-container-org7b9227c" class="outline-3">
+<h3 id="org7b9227c">出力結果</h3>
+<div class="outline-text-3" id="text-org7b9227c">
 <blockquote>
 <p>
 (A B C D E F G)  
@@ -99,24 +99,24 @@ mapcarは「シーケンス」の個々の要素に対し、指定した関数�
 </div>
 </div>
 
-<div id="outline-container-orgb5234e9" class="outline-2">
-<h2 id="orgb5234e9">mapcar で文字列を解体する（文字を取り出す）</h2>
-<div class="outline-text-2" id="text-orgb5234e9">
+<div id="outline-container-org9f9a65c" class="outline-2">
+<h2 id="org9f9a65c">mapcar で文字列を解体する（文字を取り出す）</h2>
+<div class="outline-text-2" id="text-org9f9a65c">
 <p>
 なお，何もしない関数を指定することもできる．identityという関数である．
 次の例は，文字列の各要素に対して，何もしないとどうなるかを示している．
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(mapcar 'identity <span class="org-string">"ABCDEFG"</span>)
+<pre class="src src-emacs-lisp">(mapcar 'identity <span style="color: #8b2252;">"ABCDEFG"</span>)
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-org1455ddb" class="outline-3">
-<h3 id="org1455ddb">出力結果</h3>
-<div class="outline-text-3" id="text-org1455ddb">
+<div id="outline-container-orgaafd698" class="outline-3">
+<h3 id="orgaafd698">出力結果</h3>
+<div class="outline-text-3" id="text-orgaafd698">
 <blockquote>
 <p>
 (65 66 67 68 69 70 71)

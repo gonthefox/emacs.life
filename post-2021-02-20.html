@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-03-20 Sat 23:16 -->
+<!-- 2021-03-20 Sat 23:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Index</title>
+<title>org-publish でインライン画像を回転する</title>
 <meta name="generator" content="Org mode" />
 <link rel="stylesheet" href="./css/stylesheet.css" type="text/css"/>
 <script data-ad-client="ca-pub-2100120543182790" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -63,93 +63,23 @@ for the JavaScript code in this tag.
 <div class="banner">
 <a id="name">Life with Emacs.</a><br />
 <a href="./about.html"> about this site </a> | <a href="index.html"> archive </a> | <a href="theindex.html"> index </a></div>
-<div class="title">Index</div>
-<div class="date"></div>
+<div class="title">org-publish でインライン画像を回転する</div>
+<div class="date">2021-02-20 Sat 00:00</div>
 </div>
 <div id="content">
+<div id="outline-container-orgb5b06ab" class="outline-2">
+<h2 id="orgb5b06ab">org-publish で画像を回転させる</h2>
+<div class="outline-text-2" id="text-orgb5b06ab">
+<p>
+org-publish で org-modeで書かれた文書をHTMLに変換する際に，インラインの画像を回転するにはどうしたら良いか．
+いろいろ試行錯誤したが，どうやら以下のようにすると画像を９０度回転するHTMLを吐き出せることがわかった．
+</p>
 
-<div id="outline-container-org9afc82d" class="outline-2">
-<h2 id="org9afc82d">B</h2>
-<div class="outline-text-2" id="text-org9afc82d">
-<ul class="org-ul">
-<li><a href="post-2020-01-25.html">Blogging</a></li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-org"><span style="color: #b22222;">#+attr_html: :style transform:rotate(90deg)</span>
+\[\[path-to-figure\]\]
+</pre>
 </div>
-</div>
-<div id="outline-container-org310e8af" class="outline-2">
-<h2 id="org310e8af">C</h2>
-<div class="outline-text-2" id="text-org310e8af">
-<ul class="org-ul">
-<li><a href="post-2020-08-09.html">concat</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgff32fb6" class="outline-2">
-<h2 id="orgff32fb6">D</h2>
-<div class="outline-text-2" id="text-orgff32fb6">
-<ul class="org-ul">
-<li><a href="post-2020-09-12.html">days-to-time</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org305ca11" class="outline-2">
-<h2 id="org305ca11">E</h2>
-<div class="outline-text-2" id="text-org305ca11">
-<ul class="org-ul">
-<li><a href="post-2020-08-09.html">equal</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga915e4d" class="outline-2">
-<h2 id="orga915e4d">F</h2>
-<div class="outline-text-2" id="text-orga915e4d">
-<ul class="org-ul">
-<li><a href="post-2020-01-28.html">ftp</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgaf4cfb4" class="outline-2">
-<h2 id="orgaf4cfb4">I</h2>
-<div class="outline-text-2" id="text-orgaf4cfb4">
-<ul class="org-ul">
-<li><a href="post-2019-12-26.html">identity</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org5e11831" class="outline-2">
-<h2 id="org5e11831">M</h2>
-<div class="outline-text-2" id="text-org5e11831">
-<ul class="org-ul">
-<li><a href="post-2020-08-09.html">mapcar</a></li>
-<li><a href="post-2019-12-26.html">mapcar</a></li>
-<li><a href="post-2020-08-09.html">mapconcat</a></li>
-<li><a href="post-2020-01-26.html">maxima</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgb7ae8ef" class="outline-2">
-<h2 id="orgb7ae8ef">S</h2>
-<div class="outline-text-2" id="text-orgb7ae8ef">
-<ul class="org-ul">
-<li><a href="post-2020-08-09.html">string</a></li>
-<li><a href="post-2020-08-09.html">string-to-number</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org398a580" class="outline-2">
-<h2 id="org398a580">T</h2>
-<div class="outline-text-2" id="text-org398a580">
-<ul class="org-ul">
-<li><a href="post-2020-09-12.html">time-add</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org1ad0040" class="outline-2">
-<h2 id="org1ad0040">改</h2>
-<div class="outline-text-2" id="text-org1ad0040">
-<ul class="org-ul">
-<li><a href="post-2020-09-12.html">改行文字</a></li>
-</ul>
 </div>
 </div>
 </div>

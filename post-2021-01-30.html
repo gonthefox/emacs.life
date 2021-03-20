@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-01 Mon 08:35 -->
+<!-- 2021-03-20 Sat 22:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>replace-regexp-in-string</title>
@@ -89,9 +89,9 @@ for the JavaScript code in this tag.
 <div class="date">2021-01-30 Sat 00:00</div>
 </div>
 <div id="content">
-<div id="outline-container-orgd63fc85" class="outline-2">
-<h2 id="orgd63fc85">replace-regexp-in-string を使ってみる</h2>
-<div class="outline-text-2" id="text-orgd63fc85">
+<div id="outline-container-org0025e60" class="outline-2">
+<h2 id="org0025e60">replace-regexp-in-string を使ってみる</h2>
+<div class="outline-text-2" id="text-org0025e60">
 <p>
 次のような問題を考える．
 </p>
@@ -113,7 +113,7 @@ replace-regexp-in-stringを用いる．
 
 <p>
 つまづいたのは，カッコにバックスラッシュをいくつ付ければよいのか，ということ．
-文字としての"(" あるいは ")" に一致させるには，"¥\(" あるいは "¥\)" とすればよい．特殊文字ではなく通常の文字として扱え，ということだろう．
+文字としての"(" あるいは ")" に一致させるには，"\(" あるいは "\)" とすればよい．特殊文字ではなく通常の文字として扱え，ということだろう．
 後方置換のための"("はそれなら，何も付けなくていいだろう，と思ったがそうではなかった．なぜか，"\\(" あるいは "\\)" のように，バックスラッシュを重ねなければならなかった．
 それじゃあ，バックスラッシュの無い "(" あるいは ")" は何なんだろう？
 追々調べて行くとしよう．
@@ -121,9 +121,9 @@ replace-regexp-in-stringを用いる．
 
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span class="org-keyword">setq</span> test <span class="org-string">"( b nil 59 )"</span>)
-(<span class="org-keyword">setq</span> reg (concat <span class="org-string">"\(\\s-*[b]\\s-*"</span> (regexp-quote <span class="org-string">"nil"</span>) <span class="org-string">"\\s-*</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">(</span></span><span class="org-string">[0-9]+</span><span class="org-string"><span class="org-regexp-grouping-backslash">\\</span></span><span class="org-string"><span class="org-regexp-grouping-construct">)</span></span><span class="org-string">+\\s-*\)"</span>) )
-(<span class="org-keyword">setq</span> rep <span class="org-string">" *\\1* "</span>)
+<pre class="src src-emacs-lisp">(<span style="color: #a020f0;">setq</span> test <span style="color: #8b2252;">"( b nil 59 )"</span>)
+(<span style="color: #a020f0;">setq</span> reg (concat <span style="color: #8b2252;">"\(\\s-*[b]\\s-*"</span> (regexp-quote <span style="color: #8b2252;">"nil"</span>) <span style="color: #8b2252;">"\\s-*</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">[0-9]+</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">+\\s-*\)"</span>) )
+(<span style="color: #a020f0;">setq</span> rep <span style="color: #8b2252;">" *\\1* "</span>)
 (replace-regexp-in-string reg rep test)
 </pre>
 </div>
